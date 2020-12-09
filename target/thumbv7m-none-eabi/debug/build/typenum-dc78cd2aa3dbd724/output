@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/home/gladev/Projekte/mcb32/target/thumbv7m-none-eabi/debug/build/typenum-dc78cd2aa3dbd724/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/home/gladev/Projekte/mcb32/target/thumbv7m-none-eabi/debug/build/typenum-dc78cd2aa3dbd724/out/op.rs

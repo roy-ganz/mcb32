@@ -1,0 +1,3 @@
+cargo:rustc-link-search=/home/gladev/Projekte/mcb32/target/thumbv7m-none-eabi/debug/build/stm32f1-d160eb9f3956456a/out
+cargo:rerun-if-changed=src/stm32f107/device.x
+cargo:rerun-if-changed=build.rs

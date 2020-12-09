@@ -131,7 +131,7 @@ impl Board {
      // Connect the SPI device to the DMA
     let tx_dma = spi_glcd.with_tx_dma(dma.2);
 
-    //fn test_write<T: WriteDma<&'static[u8],u8>>(t: T) {
+   /*  //fn test_write<T: WriteDma<&'static[u8],u8>>(t: T) {
     fn test_write<W: WriteDma<&'static[u8], u8>>(t: W)
     
     {
@@ -141,7 +141,7 @@ impl Board {
     }
 
     let buffer1: &'static mut [u8] = cortex_m::singleton!(:[u8; 20 * 72] = [0; 20 * 72]).unwrap();
-    test_write(tx_dma);
+    test_write(tx_dma); */
    // let buffer2: &'static mut [u8] = cortex_m::singleton!(:[u8; 20 * 72] = [0; 20 * 72]).unwrap();
  //  let transfer = tx_dma.write(buffer1);
   //      let x = transfer.wait();
@@ -156,7 +156,7 @@ impl Board {
 
     // Wait for it to finnish. The transfer takes ownership over the SPI device
     // and the data being sent anb those things are returned by transfer.wait
-    let (_buffer, _spi_dma) = transfer.wait();
+   // let (_buffer, _spi_dma) = transfer.wait();
 
         let mut gpiod = dp.GPIOD.split(&mut rcc.apb2);
         let center_in = gpiod.pd15.into_floating_input(&mut gpiod.crh);

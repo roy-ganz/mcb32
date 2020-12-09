@@ -10,6 +10,7 @@ use nb::block;
 
 use cortex_m_rt::entry;
 use stm32f1xx_hal::{dma::WriteDma, pac, prelude::*, timer::Timer, spi};
+use stm32f1xx_hal::dma::TransferPayload;
 
 
 mod joystick;
@@ -24,6 +25,8 @@ mod shifter;
 use board::Board;
 
 use stm32f1xx_hal::prelude::*;
+use stm32f1xx_hal::dma::TxDma;
+use stm32f1xx_hal::pac::SPI3;
 
 #[entry]
 fn main() -> ! {
@@ -87,13 +90,11 @@ fn main() -> ! {
 
   
 
-   fn test_write<W: WriteDma<&'static[u8],u8>>(t: W, buffer: &'static [u8])
-   {
-       let transfer = t.write(buffer);
-       let x = transfer.wait();
-       //               ^^^^^^ My problem: method does not exist in transfer
-
-   }
+  fn test_write<REMAP, PINS>(t: SpiTxDma<SPI3, REMAP, PINS, C2>, buffer: &'static [u8])
+{
+    let transfer = t.write(buffer);
+    let x = transfer.wait();
+}
 
    let buffer1: &'static mut [u8] = cortex_m::singleton!(:[u8; 100] = [0; 100]).unwrap();
    test_write(tx_dma, &buffer1);

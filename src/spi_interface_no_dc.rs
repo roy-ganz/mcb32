@@ -65,9 +65,9 @@ where
                             let tx_dma = take(&mut self.tx_dma);
                             if let Some(tx_dma) = tx_dma {
                                 //let buffer1: & mut [u8] = cortex_m::singleton!(:[u8; 20 * 72] = [0; 20 * 72]).unwrap();
-                                let  transfer =tx_dma.write(b"hjkhjk");
-                                let (buffer, tx_dma) = transfer.wait();
-                                self.tx_dma = Some(tx_dma);
+                              //  let  transfer =tx_dma.write(b"hjkhjk");
+//                                let (buffer, tx_dma) = transfer.wait();
+  //                              self.tx_dma = Some(tx_dma);
                             }
 
                         }
